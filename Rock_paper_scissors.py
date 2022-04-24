@@ -3,13 +3,11 @@ import random
 def name_to_number(name):
     rspls={"Rock":0,"Spock":1,"Paper":2,"Lizard":3,"Scissors":4}
     return rspls[name]
-   
 
 def number_to_name(number):
     rspls={0:"Rock",1:"Spock",2:"Paper",3:"Lizard",4:"Scissors"}
     return rspls[number]
-       
-   
+
 def play_again():
     """Asks the user if they want to play the game again"""
     while True:
@@ -22,7 +20,6 @@ def play_again():
             break
         else:
             print("That is not the answer I was looking for. Type 'Yes' or 'No' please :) ")
-
 
 def rps():
     while True:
