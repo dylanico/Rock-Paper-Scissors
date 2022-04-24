@@ -15,10 +15,10 @@ def play_again():
     while True:
         choose=input("Do you want to play again? Type Yes or No: ")
         user_chooses = choose[0].upper()+choose[1:].lower()
-        if user_chooses =="Yes":
+        if user_chooses == "Yes":
             rps()
             break
-        elif user_chooses =="No":
+        elif user_chooses == "No":
             break
         else:
             print("That is not the answer I was looking for. Type 'Yes' or 'No' please :) ")
@@ -37,11 +37,18 @@ def rps():
    
     n=0
     while n!=round_option:
-        player_choice=input("Choose Rock, Spock, Paper, Lizard, Scissors")
-        proper_player_choice = player_choice[0].upper()+player_choice[1:].lower()
-        print(f'\nThis is your choice: {proper_player_choice}')
-        player_number=name_to_number(proper_player_choice)
-        player_number
+        while True:
+            player_choice=input("Choose Rock, Spock, Paper, Lizard, Scissors")
+            proper_player_choice = player_choice[0].upper()+player_choice[1:].lower()
+            print(f'\nThis is your choice: {proper_player_choice}')
+            try:
+                player_number=name_to_number(proper_player_choice)
+            except KeyError:
+                print("You chose the wrong word. Remember to choose either Rock, Paper, Scissors, Lizard or Spock")
+                continue
+            else:
+                break
+
 
         comp_number=random.randrange(0,4)
         comp_choice=number_to_name(comp_number)
@@ -58,4 +65,4 @@ def rps():
        
     play_again()
 
-#rps()
+rps()
