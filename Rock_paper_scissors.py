@@ -27,7 +27,7 @@ def play_again():
 def rps():
     while True:
         try:
-            round_option=int(input("How many rounds do you want to play?"))
+            round_option = int(input("How many rounds do you want to play?"))
         except ValueError:
             print("That is not a (whole) number. Try again please.")
             continue
@@ -38,11 +38,11 @@ def rps():
     n=0
     while n!=round_option:
         while True:
-            player_choice=input("Choose Rock, Spock, Paper, Lizard, Scissors")
+            player_choice = input("Choose Rock, Spock, Paper, Lizard, Scissors")
             proper_player_choice = player_choice[0].upper()+player_choice[1:].lower()
             print(f'\nThis is your choice: {proper_player_choice}')
             try:
-                player_number=name_to_number(proper_player_choice)
+                player_number = name_to_number(proper_player_choice)
             except KeyError:
                 print("You chose the wrong word. Remember to choose either Rock, Paper, Scissors, Lizard or Spock")
                 continue
@@ -54,13 +54,13 @@ def rps():
         comp_choice=number_to_name(comp_number)
         print(f"This is the computer's choice: {comp_choice}")
 
-        decision_factor=(comp_number-player_number)%5
-        if decision_factor==2 or decision_factor==1:
+        decision_factor = (comp_number-player_number)%5
+        if decision_factor == 2 or decision_factor == 1:
             print("Computer wins!")
-        elif decision_factor==0:
+        elif decision_factor == 0:
             print("Tie! I guess like minds do think alike.")
         else:
-            print("Player wins! Hooray")
+            print("You win this round! Hooray!")
         n+=1
        
     play_again()
