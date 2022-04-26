@@ -65,7 +65,12 @@ def rps():
             win_variable += 1
         n+=1
 
-    print(f'\nYou won {win_variable} out of the {round_option} games you played.') 
+    if win_variable == 0:
+        print("Wow. You really suck at this game.")
+    else:
+        print(f'\nYou won {win_variable} out of the {round_option} games you played.') 
+
+
     if tie_variable > 0:
         print(f'\nYou tied {tie_variable} amount of times during that game.')
 
