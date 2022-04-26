@@ -3,13 +3,11 @@ import random
 def name_to_number(name):
     rspls={"Rock":0,"Spock":1,"Paper":2,"Lizard":3,"Scissors":4}
     return rspls[name]
-   
 
 def number_to_name(number):
     rspls={0:"Rock",1:"Spock",2:"Paper",3:"Lizard",4:"Scissors"}
     return rspls[number]
-       
-   
+
 def play_again():
     """Asks the user if they want to play the game again"""
     while True:
@@ -23,11 +21,10 @@ def play_again():
         else:
             print("That is not the answer I was looking for. Type 'Yes' or 'No' please :) ")
 
-
 def rps():
     while True:
         try:
-            round_option=int(input("How many rounds do you want to play?"))
+            round_option = int(input("How many rounds do you want to play?"))
         except ValueError:
             print("That is not a (whole) number. Try again please.")
             continue
@@ -38,11 +35,11 @@ def rps():
     n=0
     while n!=round_option:
         while True:
-            player_choice=input("Choose Rock, Spock, Paper, Lizard, Scissors")
+            player_choice = input("Choose Rock, Spock, Paper, Lizard, Scissors")
             proper_player_choice = player_choice[0].upper()+player_choice[1:].lower()
             print(f'\nThis is your choice: {proper_player_choice}')
             try:
-                player_number=name_to_number(proper_player_choice)
+                player_number = name_to_number(proper_player_choice)
             except KeyError:
                 print("You chose the wrong word. Remember to choose either Rock, Paper, Scissors, Lizard or Spock")
                 continue
@@ -54,13 +51,13 @@ def rps():
         comp_choice=number_to_name(comp_number)
         print(f"This is the computer's choice: {comp_choice}")
 
-        decision_factor=(comp_number-player_number)%5
-        if decision_factor==2 or decision_factor==1:
+        decision_factor = (comp_number-player_number)%5
+        if decision_factor == 2 or decision_factor == 1:
             print("Computer wins!")
-        elif decision_factor==0:
+        elif decision_factor == 0:
             print("Tie! I guess like minds do think alike.")
         else:
-            print("Player wins! Hooray")
+            print("You win this round! Hooray!")
         n+=1
        
     play_again()
