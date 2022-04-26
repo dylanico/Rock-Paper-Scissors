@@ -33,6 +33,9 @@ def rps():
        
    
     n=0
+    win_variable = 0
+    tie_variable = 0
+
     while n!=round_option:
         while True:
             player_choice = input("Choose Rock, Spock, Paper, Lizard, Scissors")
@@ -56,10 +59,16 @@ def rps():
             print("Computer wins!")
         elif decision_factor == 0:
             print("Tie! I guess like minds do think alike.")
+            tie_variable += 1
         else:
             print("You win this round! Hooray!")
+            win_variable += 1
         n+=1
-       
+
+    print(f'\nYou won {win_variable} out of the {round_option} games you played.') 
+    if tie_variable > 0:
+        print(f'\nYou tied {tie_variable} amount of times during that game.')
+
     play_again()
 
 rps()
